@@ -2,6 +2,7 @@
 #include<string>
 using namespace std;
 
+//not finished yet , but almost 9 pm so upload dulu
 
 class PersonData
 {
@@ -92,6 +93,49 @@ class CustomerData : public PersonData
 	
 };
 
+class PreferredCustomer: public CustomerData 
+{
+	double amount ;
+	double level ;
+	
+	public :
+	
+	void setA(double amountt)
+	{
+		amount=amountt;
+	
+	}
+	
+	double getA()
+	{
+		return amount;
+	}
+	
+	double getL()
+	{
+		return level ;
+	}
+	
+	void discount(double)
+	{
+		if(amount>499 && amount<1000)
+		cout<<"5%";
+		
+		else if(amount>999 && amount<1500)
+		cout<<"6%";
+		
+		else if(amount>1499 && amount<2000)
+		cout<<"7%";
+		
+		else if(amount>1999)
+		cout<<"10%";
+		
+		else
+		cout<<"no discount";
+	}
+	
+};
+
 
 int main()
 {
@@ -99,7 +143,8 @@ int main()
 	int zipp,phonee ;
 	int numberr ;
 	char maill;
-	CustomerData input ;
+	double levell,amountt;
+	PreferredCustomer input ;
 	
 	cout<<"input last name : " ;
 	getline(cin,lastt);
@@ -134,8 +179,15 @@ int main()
 	else
 	input.setM(false);
 	
+	cout<<"purchases amount : ";
+	cin>>amountt;
+	
+	
 	input.setData(lastt,firstt,addresss,cityy,statee,zipp,phonee);
 	input.setN(numberr);
+	input.setA(amountt);
+	
+	cout<<endl<<endl;
 	
 	cout<<"last name : " << input.getL();
 	cout<<endl;
@@ -164,6 +216,13 @@ int main()
 	cout<<"  yes";
 	else
 	cout<<"  no";
+	
+	cout<<"purcased : "<<input.getA();
+	cout<<endl<<endl;
+	
+	cout<<"discount = ";
+	
+	input.discount(input.getA());
 	
 	
 	
