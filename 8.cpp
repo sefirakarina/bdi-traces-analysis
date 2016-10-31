@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 
-//not finished yet , but almost 9 pm so upload dulu
+
 
 class PersonData
 {
